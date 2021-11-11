@@ -1,10 +1,11 @@
 from texttable import Texttable
+import os
 import json
 
 def save_user_data(user_id, user_data):
     """
         Save User Information
-    """    
+    """
     # Read data
     try:
         with open('database.json', 'r', encoding='utf-8') as json_file:
@@ -23,6 +24,10 @@ def get_user(user_id):
     """
         Read User Information
     """
+    # Create database if not exists
+    if not os.path.exists(f'./database.json'):
+        with open(f'./database.json', 'w'): pass
+
     user_id = str(user_id)
     try:
         with open('database.json', 'r', encoding='utf-8') as json_file:
