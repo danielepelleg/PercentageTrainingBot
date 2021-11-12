@@ -21,13 +21,15 @@ class User:
     
     def load_from_data(self, json_file):
         self.type = json_file.get('type', None)
-        if json_file['type'] == 'crossfit':
-            training = json_file['training']
-            self.training = Crossfit(training['bench_press'], training['deadlift'], training['squat'], training['clean'], training['snatch'], training['jerk'])
-        
-        if json_file['type'] == 'powerlifting':
-            training = json_file['training']
-            self.training = Training(training['bench_press'], training['deadlift'], training['squat'])
+        if 'type' in json_file:
+            if json_file['type'] == 'crossfit':
+                training = json_file['training']
+                self.training = Crossfit(training['bench_press'], training['deadlift'], training['squat'], training['clean'], training['snatch'], training['jerk'])
+            
+            if json_file['type'] == 'powerlifting':
+                training = json_file['training']
+                self.training = Training(training['bench_press'], training['deadlift'], training['squat'])
+
 class Training:
     def __init__(self, bench_press = None, deadlift = None, squat = None):
         self.bench_press = bench_press
