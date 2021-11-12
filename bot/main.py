@@ -105,15 +105,18 @@ def set_exercise(message):
 @bot.message_handler(commands=['bench_press', 'deadlift', 'squat', 'clean', 'snatch', 'jerk'])
 def greet(message):
     exercise_name = message.text[1:]
+    if USER_SESSION.training == None:
+        return bot.send_message(message, """\
+            Use the command /exercise to choose 
+            the set your exercise's PR first""")
     exercise_pr = getattr(USER_SESSION.training, exercise_name)
     table_title = str(exercise_name.upper()).center(17, ' ')
     if exercise_pr != None:
         bot.send_message(message.chat.id, f'**{table_title}**\n{draw_table(int(exercise_pr))}', parse_mode='Markdown')
     else:
         bot.reply_to(message, """\
-            Use the /exercise command to set 
-            the PR for this exercise first
-            """)
+            Use the command /exercise to choose 
+            the set your exercise's PR first""")
 
 @bot.message_handler(commands=['set'])
 def set_rm(message):
