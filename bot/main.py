@@ -25,7 +25,7 @@ commands = {  # command description used in the "help" command
 API_KEY = os.environ.get('API_KEY')
 print(API_KEY)
 
-bot = telebot.TeleBot(API_KEY)
+bot = telebot.AsyncTeleBot(API_KEY)
 print(bot)
 
 @bot.message_handler(commands=['start'])

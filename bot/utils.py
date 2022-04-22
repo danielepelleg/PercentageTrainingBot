@@ -41,7 +41,7 @@ def draw_table(number):
     """
         Draw percentages table.
     """
-    percentages = [50, 55, 60, 62, 63, 65, 66, 67, 68, 70, 72, 73, 75, 76, 78, 80, 82, 85, 88, 90, 95, 98, 102, 105, 107]
+    percentages = [50, 55, 60, 62, 63, 65, 66, 67, 68, 70, 72, 73, 75, 76, 78, 80, 82, 85, 87, 88, 90, 95, 98, 102, 105, 107]
     records = [['%', 'Weight']] # Headers
 
     for p in percentages:
