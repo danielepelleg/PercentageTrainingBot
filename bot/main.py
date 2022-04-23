@@ -114,7 +114,7 @@ def greet(message):
     if exercise_pr != None:
         bot.send_message(message.chat.id, f'**{table_title}**\n{draw_table(int(exercise_pr))}', parse_mode='Markdown')
     else:
-        bot.reply_to(message, """\
+        bot.reply_to(message.chat.id, """\
             Use the command /exercise to choose 
             the set your exercise's PR first""")
 
