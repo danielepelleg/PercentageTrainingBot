@@ -267,4 +267,4 @@ def process_jerk_step(message):
     except Exception as e:
         bot.reply_to(message, 'An error occurred')
 
-bot.polling()
+bot.infinity_polling()

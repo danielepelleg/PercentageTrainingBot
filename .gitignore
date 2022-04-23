@@ -6,6 +6,9 @@ __pycache__/
 # DB
 *.json
 
+# Test
+test.py
+
 # C extensions
 *.so
 
