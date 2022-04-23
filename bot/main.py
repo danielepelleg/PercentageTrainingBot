@@ -103,7 +103,7 @@ def set_exercise(message):
     bot.send_message(message.chat.id, '📈 Choose the exercise', reply_markup=markup)
 
 @bot.message_handler(commands=['bench_press', 'deadlift', 'squat', 'clean', 'snatch', 'jerk'])
-def greet(message):
+def handle_exercise(message):
     exercise_name = message.text[1:]
     if USER_SESSION.training == None:
         return bot.send_message(message.chat.id, """\
