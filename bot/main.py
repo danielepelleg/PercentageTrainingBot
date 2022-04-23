@@ -168,14 +168,14 @@ def process_bench_step(message):
         chat_id = message.chat.id
         weight = message.text
         if not weight.isdigit():
-            msg = bot.reply_to(message, '1RM should be a number. Please reinsert')
+            msg = bot.reply_to(chat_id, '1RM should be a number. Please reinsert')
             bot.register_next_step_handler(msg, process_bench_step)
             return
         USER_SESSION.training.bench_press = weight
         USER_SESSION_DICT = USER_SESSION.to_dict()
         bot.send_message(chat_id, 'Saved!')
     except Exception as e:
-        bot.reply_to(message, 'An error occurred')
+        bot.reply_to(chat_id, 'An error occurred')
 
 def process_deadlift_step(message):
     """ Deadlift Demand
@@ -186,14 +186,14 @@ def process_deadlift_step(message):
         chat_id = message.chat.id
         weight = message.text
         if not weight.isdigit():
-            msg = bot.reply_to(message, '1RM should be a number. Please reinsert')
+            msg = bot.reply_to(chat_id, '1RM should be a number. Please reinsert')
             bot.register_next_step_handler(msg, process_deadlift_step)
             return
         USER_SESSION.training.deadlift = weight
         USER_SESSION_DICT = USER_SESSION.to_dict()
         bot.send_message(chat_id, 'Saved!')
     except Exception as e:
-        bot.reply_to(message, 'An error occurred')
+        bot.reply_to(chat_id, 'An error occurred')
 
 def process_squat_step(message):
     """ Squat Demand
@@ -204,14 +204,14 @@ def process_squat_step(message):
         chat_id = message.chat.id
         weight = message.text
         if not weight.isdigit():
-            msg = bot.reply_to(message, '1RM should be a number. Please reinsert')
+            msg = bot.reply_to(chat_id, '1RM should be a number. Please reinsert')
             bot.register_next_step_handler(msg, process_squat_step)
             return
         USER_SESSION.training.squat = weight
         USER_SESSION_DICT = USER_SESSION.to_dict()
         bot.send_message(chat_id, 'Saved!')
     except Exception as e:
-        bot.reply_to(message, 'An error occurred')
+        bot.reply_to(chat_id, 'An error occurred')
 
 def process_clean_step(message):
     """ Clean Demand
@@ -222,14 +222,14 @@ def process_clean_step(message):
         chat_id = message.chat.id
         weight = message.text
         if not weight.isdigit():
-            msg = bot.reply_to(message, '1RM should be a number. Please reinsert')
+            msg = bot.reply_to(chat_id, '1RM should be a number. Please reinsert')
             bot.register_next_step_handler(msg, process_clean_step)
             return
         USER_SESSION.training.clean = weight
         USER_SESSION_DICT = USER_SESSION.to_dict()
         bot.send_message(chat_id, 'Saved!')
     except Exception as e:
-        bot.reply_to(message, 'An error occurred')
+        bot.reply_to(chat_id, 'An error occurred')
 
 def process_snatch_step(message):
     """ Snatch Demand
@@ -240,14 +240,14 @@ def process_snatch_step(message):
         chat_id = message.chat.id
         weight = message.text
         if not weight.isdigit():
-            msg = bot.reply_to(message, '1RM should be a number. Please reinsert')
+            msg = bot.reply_to(chat_id, '1RM should be a number. Please reinsert')
             bot.register_next_step_handler(msg, process_snatch_step)
             return
         USER_SESSION.training.snatch = weight
         USER_SESSION_DICT = USER_SESSION.to_dict()
         bot.send_message(chat_id, 'Saved!')
     except Exception as e:
-        bot.reply_to(message, 'An error occurred')
+        bot.reply_to(chat_id, 'An error occurred')
 
 def process_jerk_step(message):
     """ Jerk Demand
@@ -258,13 +258,13 @@ def process_jerk_step(message):
         chat_id = message.chat.id
         weight = message.text
         if not weight.isdigit():
-            msg = bot.reply_to(message, '1RM should be a number. Please reinsert')
+            msg = bot.reply_to(chat_id, '1RM should be a number. Please reinsert')
             bot.register_next_step_handler(msg, process_jerk_step)
             return
         USER_SESSION.training.jerk = weight
         USER_SESSION_DICT = USER_SESSION.to_dict()
         bot.send_message(chat_id, 'Saved!')
     except Exception as e:
-        bot.reply_to(message, 'An error occurred')
+        bot.reply_to(chat_id, 'An error occurred')
 
 bot.infinity_polling()
