@@ -106,7 +106,7 @@ def set_exercise(message):
 def greet(message):
     exercise_name = message.text[1:]
     if USER_SESSION.training == None:
-        return bot.send_message(message, """\
+        return bot.send_message(message.chat.id, """\
             Use the command /exercise to choose 
             the set your exercise's PR first""")
     exercise_pr = getattr(USER_SESSION.training, exercise_name)
