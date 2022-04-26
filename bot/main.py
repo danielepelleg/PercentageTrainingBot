@@ -118,14 +118,6 @@ def handle_exercise(message):
             Use the command /exercise to choose 
             the set your exercise's PR first""")
 
-@bot.message_handler(commands=['set'])
-def set_rm(message):
-    markup = telebot.types.InlineKeyboardMarkup()
-    markup.row_width = 2
-    markup.add(telebot.types.InlineKeyboardButton("Powerlifting", callback_data="powerlifting"),
-                               telebot.types.InlineKeyboardButton("Crossfit", callback_data="crossfit"))
-    bot.send_message(message.chat.id, 'Choose your type of training', reply_markup=markup)
-
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     global USER_SESSION
