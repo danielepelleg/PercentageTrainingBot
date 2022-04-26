@@ -1,47 +1,10 @@
 from texttable import Texttable
-import os
-import json
-
-def save_user_data(user_id, user_data):
-    """
-        Save User Information
-    """
-    # Read data
-    try:
-        with open('database.json', 'r', encoding='utf-8') as json_file:
-            users_data = json.load(json_file)
-    except ValueError:
-        users_data = {} # Default: empty
-
-    # Update data
-    users_data[str(user_id)] = user_data
-
-    # Save data
-    with open('database.json', 'w', encoding='utf-8') as json_file:
-        json.dump(users_data, json_file, indent=4, sort_keys=True)
-
-def get_user(user_id):
-    """
-        Read User Information
-    """
-    # Create database if not exists
-    if not os.path.exists(f'./database.json'):
-        with open(f'./database.json', 'w'): pass
-
-    user_id = str(user_id)
-    try:
-        with open('database.json', 'r', encoding='utf-8') as json_file:
-            users_data = json.load(json_file)
-        if user_id in users_data:
-            return users_data[user_id]
-    except ValueError:
-        return None
 
 def draw_table(number):
     """
         Draw percentages table.
     """
-    percentages = [50, 55, 60, 62, 63, 65, 66, 67, 68, 70, 72, 73, 75, 76, 78, 80, 82, 85, 87, 88, 90, 95, 98, 102, 105, 107]
+    percentages = [50, 53, 55, 57, 60, 62, 63, 65, 66, 67, 68, 70, 72, 73, 75, 77, 76, 78, 80, 82, 85, 87, 88, 90, 95, 97, 98, 102, 105, 107]
     records = [['%', 'Weight']] # Headers
 
     for p in percentages:
