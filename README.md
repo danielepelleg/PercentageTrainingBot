@@ -16,7 +16,6 @@
 - [🔨 Getting Started](#-getting-started)
   - [Updates](#updates)
 - [⚙️ Commands](#️-commands)
-- [📝 Future Improvements](#-future-improvements)
 - [🔑 LICENSE](#-license)
 - [Contributors](#contributors)
 
@@ -43,10 +42,6 @@ This is the list of commands available within the bot:
 - `/set` Set the user's training type.
 - `/exercise` Allow the user to set his PRs for the exercise chosen. 
 - `/${SKILL_NAME}` The *$SKILL_NAME* represents the name of the exercise which the user's has previously set his PR. The command returns the table containing the percentage of the given exercise.
-
-## 📝 Future Improvements
-- PERISTENCY : make user's data persistent using JSON objects storing the information about every user. The project doesn't require a DBMS for now.
-
 
 ## 🔑 LICENSE
 
