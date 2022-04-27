@@ -45,7 +45,7 @@ class DBManager(object):
         except ValueError:
             return None
 
-    def insert_user(self, username, user_id):
+    def insert_user(self, user_id, username):
         connection = self.create_connection(self.database_name)
         database = connection.cursor()
         database.execute(f"INSERT INTO user VALUES ({user_id}, '{username}')")
@@ -61,7 +61,8 @@ class DBManager(object):
         connection.close()
         try:
             if query:
-                return dict_from_row(query[0])
+                result = dict_from_row(query[0])
+                return result['training_name']
         except ValueError:
             return None
 
@@ -100,9 +101,9 @@ class DBManager(object):
         except ValueError:
             return None
     
-    def update_exercise(self, user_id, exercise_name, exercise_rm):
+    def update_exercise(self, user_id, column_name, exercise_rm):
         connection = self.create_connection(self.database_name)
         database = connection.cursor()
-        database.execute(f"UPDATE exercise SET {exercise_name} = {exercise_rm} WHERE user_id = {user_id}")
+        database.execute(f"UPDATE exercise SET {column_name} = {exercise_rm} WHERE user_id = {user_id}")
         connection.commit()
         connection.close()
