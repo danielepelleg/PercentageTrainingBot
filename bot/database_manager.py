@@ -108,7 +108,6 @@ class DBManager(object):
         connection.close()
         try:
             if result:
-                print(result[0])
                 return result[0]
         except ValueError:
             return None
