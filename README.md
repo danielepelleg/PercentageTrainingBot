@@ -22,10 +22,10 @@
 ## 🤖 About The Project
 **Percentage Training Bot** is a Telegram bot running on Python3 which can be used during a training session. The bot is useful for the Percentage Training Programs to improve phisical strength, such as the ones used in sports such as Powerlifting, Weightlifting or Crossfit.
 
-The bot registers the user's true or estimated 1-rep max for a certain exercise (also known as PRs or RMs). Once registered, the user can access to the table showing all the percentages of that exercise by just typing */${SKILL_NAME}*. 
+The bot registers the user's true or estimated 1-rep max for a certain exercise (also known as PRs or RMs). Once registered, the user can access to the table showing all the percentages of that exercise by just typing */tables* and selecting the exercise name. 
 
 ## 🔨 Getting Started
-1. Insert your *API_KEY* in a *.env* file placed in the root directory of this project. 
+1. Insert your *API_KEY* and your *PostgreSQL Database credentials* in a *.env* file placed in the root directory of this project. 
 2. Install the dependencies by running:
     ```bash
     $> pip install -r requirements.txt
@@ -41,7 +41,7 @@ This is the list of commands available within the bot:
 - `/help` Show the list of available commands to the user.
 - `/set` Set the user's training type.
 - `/exercise` Allow the user to set his PRs for the exercise chosen. 
-- `/${SKILL_NAME}` The *$SKILL_NAME* represents the name of the exercise which the user's has previously set his PR. The command returns the table containing the percentage of the given exercise.
+- `/tables` Display a keyboard that allows the user to see his PR's tables.
 
 ## 🔑 LICENSE
 
