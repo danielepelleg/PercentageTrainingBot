@@ -37,11 +37,11 @@ class DBManager(object):
 
     def __create_tables(self):
         connection = self.create_connection()
-        database = connection.cursor()
+        cursor = connection.cursor()
         # User (ID, Username)
-        database.execute("CREATE TABLE IF NOT EXISTS \"user\" (id INTEGER PRIMARY KEY, username TEXT)")
-        database.execute("CREATE TABLE IF NOT EXISTS training (user_id INTEGER PRIMARY KEY, training_name TEXT, FOREIGN KEY (user_id) REFERENCES \"user\" (id))")
-        database.execute("CREATE TABLE IF NOT EXISTS exercise (user_id INTEGER PRIMARY KEY, bench_press INTEGER, deadlift INTEGER, back_squat INTEGER, clean INTEGER, snatch INTEGER, jerk INTEGER, front_squat INTEGER, thruster INTEGER, push_press INTEGER, shoulder_press INTEGER, overhead_squat INTEGER, FOREIGN KEY (user_id) REFERENCES \"user\" (id))")
+        cursor.execute("CREATE TABLE IF NOT EXISTS \"user\" (id INTEGER PRIMARY KEY, username TEXT)")
+        cursor.execute("CREATE TABLE IF NOT EXISTS training (user_id INTEGER PRIMARY KEY, training_name TEXT, FOREIGN KEY (user_id) REFERENCES \"user\" (id))")
+        cursor.execute("CREATE TABLE IF NOT EXISTS exercise (user_id INTEGER PRIMARY KEY, bench_press INTEGER, deadlift INTEGER, back_squat INTEGER, clean INTEGER, snatch INTEGER, jerk INTEGER, front_squat INTEGER, thruster INTEGER, push_press INTEGER, shoulder_press INTEGER, overhead_squat INTEGER, FOREIGN KEY (user_id) REFERENCES \"user\" (id))")
         connection.commit()
         connection.close()
 
