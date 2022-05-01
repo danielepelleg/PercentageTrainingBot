@@ -25,7 +25,7 @@
 The bot registers the user's true or estimated 1-rep max for a certain exercise (also known as PRs or RMs). Once registered, the user can access to the table showing all the percentages of that exercise by just typing */tables* and selecting the exercise name. 
 
 ## 🔨 Getting Started
-1. Insert your *API_KEY* and your *PostgreSQL Database credentials* in a *.env* file placed in the root directory of this project. 
+1. Insert your *API_KEY* and your *PostgreSQL Database credentials* in a *.env* file placed in the root directory. 
 2. Install the dependencies by running:
     ```bash
     $> pip install -r requirements.txt
