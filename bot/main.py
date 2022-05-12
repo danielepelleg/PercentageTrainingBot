@@ -83,8 +83,8 @@ def set_exercise(message):
             telebot.types.InlineKeyboardButton("Jerk", callback_data="jerk"),
             telebot.types.InlineKeyboardButton("Front Squat", callback_data="front_squat"),
             telebot.types.InlineKeyboardButton("Thruster", callback_data="thruster"),
-            telebot.types.InlineKeyboardButton("Push Press", callback_data="snatch"),
-            telebot.types.InlineKeyboardButton("Shoulder Press", callback_data="push_press"),
+            telebot.types.InlineKeyboardButton("Push Press", callback_data="push_press"),
+            telebot.types.InlineKeyboardButton("Shoulder Press", callback_data="shoulder_press"),
             telebot.types.InlineKeyboardButton("Overhead Squat", callback_data="overhead_squat"))
     bot.send_message(chat_id, '📈 Choose the exercise', reply_markup=markup)
 
