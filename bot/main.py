@@ -96,12 +96,13 @@ def show_tables(message):
         return bot.send_message(chat_id, """\
             Use the command /exercise to set 
             your exercise's PR first""")
-    markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     markup.add('/bench_press', '/deadlift', '/back_squat')
     if user_training == 'crossfit':
         markup.add('/clean', '/snatch', '/jerk', '/front_squat',
                     '/thruster', '/push_press', '/shoulder_press', '/overhead_squat')
     bot.reply_to(message, 'Choose your PR\'s table', reply_markup=markup)
+
 
 @bot.message_handler(commands=["bench_press", "deadlift", "back_squat", "clean", 
                                 "snatch", "jerk", "front_squat", "thruster", 
