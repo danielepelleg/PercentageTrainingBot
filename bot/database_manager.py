@@ -1,36 +1,22 @@
-import psycopg2
-import os
-import dotenv
-
-dotenv.load_dotenv()
+import sqlite3
+from config import config
 
 def dict_from_row(row):
     return dict(zip(row.keys(), row))
 
 class DBManager(object):
     def __init__(self):
-        self.DATABASE_NAME = os.environ.get('DATABASE_NAME')
-        self.DATABASE_HOST = os.environ.get('DATABASE_HOST')
-        self.DATABASE_PORT = os.environ.get('DATABASE_PORT')
-        self.DATABASE_USER = os.environ.get('DATABASE_USER')
-        self.DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
-        self.DATABASE_SSLMODE = os.environ.get('DATABASE_SSLMODE')
         self.__create_tables()
 
     def create_connection(self):
         """ create a database connection to the SQLite database
-        :param db_url: database url
         :return: Connection object or None
         """
         conn = None
         try:
-            conn = psycopg2.connect(database = self.DATABASE_NAME,
-                                    user = self.DATABASE_USER,
-                                    password = self.DATABASE_PASSWORD,
-                                    host = self.DATABASE_HOST,
-                                    port = self.DATABASE_PORT,
-                                    sslmode = self.DATABASE_SSLMODE)
-        except psycopg2.Error as e:
+            db_params = config()
+            conn = sqlite3.connect(**db_params)
+        except sqlite3.Error as e:
             print(e)
 
         return conn
